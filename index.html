@@ -1,0 +1,4618 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaika Grand | Luxury Handi Biryani & Royal Fine Dining</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Stylesheet -->
+    <style>
+/* ===================================================================
+   ZAIKA GRAND LUXURY RESTAURANT - ADVANCED MASTER STYLESHEET
+   Includes: Dark/Light Mode, Glassmorphism, Biryani Customizer Studio,
+             Visual Floorplan Table Map, POS Billing Drawer,
+             Printable GST Invoice & Kitchen Order Ticket (KOT),
+             Spin The Wheel, Responsive Breakpoints
+   =================================================================== */
+
+:root {
+    /* Royal Gold & Amber Palette */
+    --gold-primary: #f59e0b;
+    --gold-bright: #fbbf24;
+    --gold-deep: #d97706;
+    --gold-metallic: #d4af37;
+    --gold-glow: rgba(245, 158, 11, 0.3);
+    
+    /* Dark Luxury Theme Default */
+    --bg-base: #0b0d11;
+    --bg-surface: #12161f;
+    --bg-card: #181e28;
+    --bg-elevated: #222a38;
+    --border-color: #2a3444;
+    --border-light: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-muted: #8492a6;
+
+    --success-green: #10b981;
+    --danger-red: #ef4444;
+
+    --font-heading: 'Cinzel', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-full: 999px;
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.25);
+    --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --bg-base: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #f1f5f9;
+    --bg-elevated: #e2e8f0;
+    --border-color: #cbd5e1;
+    --border-light: rgba(0, 0, 0, 0.06);
+
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--transition);
+}
+
+input, select, textarea {
+    font-family: inherit;
+    outline: none;
+}
+
+/* Typography Utilities */
+.text-gold { color: var(--gold-primary) !important; }
+.text-danger { color: var(--danger-red) !important; }
+.text-success { color: var(--success-green) !important; }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.hidden { display: none !important; }
+
+.gradient-text {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    transition: var(--transition);
+}
+
+.btn-luxury {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #0b0d11;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+}
+
+.btn-luxury:hover {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 6px 24px rgba(245, 158, 11, 0.55);
+    transform: translateY(-2px);
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    border: 2px solid var(--gold-primary);
+    color: var(--gold-primary);
+}
+
+.btn-outline-gold:hover {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    transform: translateY(-2px);
+}
+
+.btn-block { width: 100%; }
+.btn-lg { padding: 1.1rem 2.2rem; font-size: 1.05rem; }
+
+/* ================= 1. TOP ANNOUNCEMENT BAR ================= */
+.top-announcement {
+    background: linear-gradient(90deg, #12161f, #181e28, #12161f);
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.82rem;
+    padding: 0.45rem 0;
+}
+
+.announcement-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.announcement-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--success-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--success-green);
+    animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+.badge-promo {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px dashed var(--gold-primary);
+    color: var(--gold-bright);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.announcement-right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.theme-toggle:hover {
+    border-color: var(--gold-primary);
+}
+
+.track-link {
+    color: var(--gold-primary);
+    font-weight: 600;
+}
+
+/* ================= 2. NAVBAR ================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(18, 22, 31, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0.85rem 0;
+    transition: var(--transition);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-shield {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #f59e0b, #b45309);
+    color: #0b0d11;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.38rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+.logo-sub {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 2.2px;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.8rem;
+}
+
+.nav-item {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.3rem 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--gold-primary);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: var(--transition);
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-spin-wheel {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 0.55rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-spin-wheel:hover {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    transform: scale(1.05);
+}
+
+.cart-trigger-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.25));
+    border: 1px solid var(--gold-primary);
+    color: var(--text-primary);
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius-full);
+}
+
+.cart-trigger-btn:hover {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--gold-primary);
+}
+
+.cart-trigger-btn:hover .cart-icon-wrapper {
+    color: #0b0d11;
+}
+
+.cart-badge-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--danger-red);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-btn-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.cart-btn-info small {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.cart-btn-info strong {
+    font-size: 0.95rem;
+    color: var(--gold-bright);
+    line-height: 1;
+}
+
+.cart-trigger-btn:hover .cart-btn-info strong {
+    color: #0b0d11;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+}
+
+/* ================= 3. HERO SHOWCASE ================= */
+.hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+    padding: 5rem 0;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 50%, rgba(11, 13, 17, 0.7) 0%, rgba(11, 13, 17, 0.96) 80%);
+}
+
+[data-theme="light"] .hero-bg-overlay {
+    background: radial-gradient(circle at 75% 50%, rgba(248, 250, 252, 0.85) 0%, rgba(248, 250, 252, 0.96) 80%);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    color: var(--gold-bright);
+    padding: 0.45rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 1.4rem;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.2rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.hero-metrics {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(24, 30, 40, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1.8rem;
+    max-width: 620px;
+}
+
+[data-theme="light"] .hero-metrics {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.metric-card i {
+    font-size: 1.8rem;
+}
+
+.metric-card h4 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 800;
+}
+
+.metric-card span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.metric-divider {
+    width: 1px;
+    height: 38px;
+    background: var(--border-color);
+}
+
+/* 3D Showcase Card in Hero */
+.hero-showcase {
+    perspective: 1000px;
+}
+
+.showcase-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    transform: rotateY(-6deg) rotateX(4deg);
+    transition: var(--transition);
+}
+
+.showcase-card:hover {
+    transform: rotateY(0) rotateX(0);
+    border-color: var(--gold-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.showcase-img-wrap {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.showcase-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase-pill {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #0b0d11;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+}
+
+.showcase-body {
+    padding: 1.8rem;
+}
+
+.showcase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.showcase-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.showcase-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+}
+
+.showcase-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* ================= SECTION COMMONS ================= */
+.section {
+    padding: 6rem 0;
+}
+
+.section-title-wrap {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 4rem;
+}
+
+.section-subtitle {
+    display: inline-block;
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    color: var(--text-primary);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* ================= 4. BIRYANI BUILDER STUDIO ================= */
+.builder-section {
+    background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-surface) 100%);
+}
+
+.builder-layout {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.builder-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+    transition: var(--transition);
+}
+
+.builder-step:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.step-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-primary);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.step-header h4 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.builder-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.builder-option {
+    cursor: pointer;
+}
+
+.builder-option input {
+    display: none;
+}
+
+.option-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.option-card i {
+    font-size: 1.5rem;
+    color: var(--gold-primary);
+    margin-bottom: 0.6rem;
+}
+
+.option-card strong {
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    margin-bottom: 0.3rem;
+}
+
+.option-card small {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    flex-grow: 1;
+}
+
+.option-price, .option-badge {
+    align-self: flex-start;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-bright);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+}
+
+.builder-option.selected .option-card {
+    border-color: var(--gold-primary);
+    background: rgba(245, 158, 11, 0.08);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+/* Spice Selector */
+.spice-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.spice-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.spice-btn span { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; }
+.spice-btn strong { display: block; color: var(--text-primary); font-size: 0.95rem; }
+.spice-btn small { font-size: 0.75rem; color: var(--text-muted); }
+
+.spice-btn.active {
+    border-color: var(--gold-primary);
+    background: rgba(245, 158, 11, 0.12);
+}
+
+/* Addons Chips */
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.9rem;
+}
+
+.addon-chip {
+    cursor: pointer;
+}
+
+.addon-chip input {
+    display: none;
+}
+
+.addon-chip span {
+    display: block;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.addon-chip input:checked + span {
+    border-color: var(--gold-primary);
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-bright);
+}
+
+/* Builder Preview Sticky Card */
+.builder-preview-card {
+    position: sticky;
+    top: 90px;
+    background: var(--bg-card);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.preview-header h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.preview-handi-visual {
+    position: relative;
+    height: 180px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+}
+
+.preview-handi-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-badge {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0.8rem;
+    background: rgba(11, 13, 17, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--gold-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.preview-spec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.spec-row strong {
+    color: var(--text-primary);
+}
+
+.preview-price-box {
+    text-align: center;
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    margin-bottom: 1.4rem;
+    border: 1px solid var(--border-color);
+}
+
+.preview-price-box small {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.preview-price-box h2 {
+    font-size: 2.2rem;
+    color: var(--gold-primary);
+    font-weight: 900;
+}
+
+/* ================= 5. FULL FOOD MENU ================= */
+.menu-section {
+    background: var(--bg-surface);
+}
+
+.menu-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+.menu-search-wrap {
+    position: relative;
+    flex-grow: 1;
+    max-width: 480px;
+}
+
+.menu-search-wrap i.fa-magnifying-glass {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.menu-search-wrap input {
+    width: 100%;
+    padding: 0.85rem 2.8rem 0.85rem 3rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.menu-search-wrap input:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: var(--text-muted);
+    display: none;
+}
+
+.diet-filter-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.diet-filter-pill {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.diet-filter-pill.active {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
+}
+
+.dot-veg {
+    width: 10px;
+    height: 10px;
+    background: var(--success-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--success-green);
+}
+
+.dot-nonveg {
+    width: 10px;
+    height: 10px;
+    background: var(--danger-red);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--danger-red);
+}
+
+.sort-box select {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.category-scroll-container {
+    overflow-x: auto;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 0.8rem;
+    width: max-content;
+}
+
+.cat-pill {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cat-pill:hover,
+.cat-pill.active {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.25));
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+}
+
+.menu-meta-status {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding-bottom: 1.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Dish Grid & Cards */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.dish-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.dish-card:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-soft);
+}
+
+.dish-img-box {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.dish-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dish-card:hover .dish-img-box img {
+    transform: scale(1.08);
+}
+
+.dish-diet-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    background: #0b0d11;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+}
+
+.dish-diet-tag.veg { border-color: var(--success-green); }
+.dish-diet-tag.veg::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--success-green);
+    border-radius: 50%;
+}
+
+.dish-diet-tag.nonveg { border-color: var(--danger-red); }
+.dish-diet-tag.nonveg::after {
+    content: '';
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid var(--danger-red);
+}
+
+.dish-badge-pill {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #0b0d11;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius-full);
+}
+
+.dish-body {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dish-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.4rem;
+}
+
+.dish-title-row h4 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.dish-rating {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--gold-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-shrink: 0;
+}
+
+.dish-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.dish-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    margin-top: auto;
+}
+
+.dish-price {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+}
+
+.btn-dish-add {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.btn-dish-add:hover {
+    background: var(--gold-primary);
+    color: #0b0d11;
+}
+
+.no-results-box {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.no-results-box i {
+    font-size: 3.5rem;
+    color: var(--gold-primary);
+    margin-bottom: 1rem;
+}
+
+/* ================= 6. FLOORPLAN TABLE RESERVATION ================= */
+.floorplan-section {
+    background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+}
+
+.floorplan-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.visual-map-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.map-legend {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-sample {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+.table-sample.available { background: var(--success-green); }
+.table-sample.selected { background: var(--gold-primary); box-shadow: 0 0 10px var(--gold-primary); }
+.table-sample.occupied { background: #64748b; opacity: 0.5; }
+
+.zone-block {
+    margin-bottom: 2rem;
+}
+
+.zone-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.table-node {
+    background: var(--bg-surface);
+    border: 2px solid var(--success-green);
+    border-radius: var(--radius-md);
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.table-node .t-id {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.table-node small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.table-node:hover:not(:disabled) {
+    border-color: var(--gold-bright);
+    transform: scale(1.06);
+}
+
+.table-node.selected {
+    background: rgba(245, 158, 11, 0.18);
+    border-color: var(--gold-primary);
+    color: var(--gold-bright);
+    box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.table-node.occupied {
+    border-color: #475569;
+    background: rgba(71, 85, 105, 0.2);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.reservation-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.res-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.2rem;
+}
+
+.res-card-header i { font-size: 1.8rem; }
+.res-card-header h3 { font-size: 1.25rem; color: var(--text-primary); }
+
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.1rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 10px var(--gold-glow);
+}
+
+.res-success-box {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.res-success-box .success-icon i {
+    font-size: 3.5rem;
+    color: var(--success-green);
+    margin-bottom: 1rem;
+}
+
+.res-ticket {
+    background: var(--bg-surface);
+    border: 1px dashed var(--gold-primary);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* ================= 7. LIVE ORDER TRACKER ================= */
+.tracker-section {
+    background: var(--bg-base);
+}
+
+.tracker-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    max-width: 980px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-soft);
+}
+
+.tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.badge-live-order {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success-green);
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    margin-bottom: 0.4rem;
+}
+
+.tracker-timer {
+    text-align: right;
+}
+
+.tracker-timer h2 {
+    font-family: var(--font-mono);
+    color: var(--gold-primary);
+    font-size: 2.2rem;
+}
+
+.tracker-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    gap: 1rem;
+}
+
+.tracker-steps::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: var(--border-color);
+    z-index: 1;
+}
+
+.t-step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 3px solid var(--border-color);
+    color: var(--text-muted);
+    margin: 0 auto 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.t-step.completed .step-circle {
+    background: var(--success-green);
+    border-color: var(--success-green);
+    color: #fff;
+}
+
+.t-step.active .step-circle {
+    background: var(--gold-primary);
+    border-color: var(--gold-bright);
+    color: #0b0d11;
+    box-shadow: 0 0 20px var(--gold-glow);
+    animation: pulse 1.5s infinite;
+}
+
+.step-text strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.step-text small {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ================= 8. POS BILLING & CART DRAWER ================= */
+.cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.cart-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pos-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 520px;
+    background: var(--bg-card);
+    z-index: 2001;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.7);
+}
+
+.pos-cart-drawer.active {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 1.8rem;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.drawer-brand i { font-size: 1.6rem; }
+.drawer-brand h3 { font-size: 1.2rem; color: var(--text-primary); }
+
+.close-drawer-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-drawer-btn:hover {
+    background: var(--danger-red);
+    color: #fff;
+}
+
+.pos-dining-tabs {
+    display: flex;
+    background: var(--bg-base);
+    padding: 0.6rem 1.4rem;
+    gap: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dining-tab {
+    flex: 1;
+    cursor: pointer;
+}
+
+.dining-tab input { display: none; }
+
+.dining-tab span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.dining-tab input:checked + span {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    border-color: var(--gold-primary);
+}
+
+.cart-scroll-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Cart Item Pill */
+.pos-cart-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.cart-item-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.cart-item-details h5 {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-item-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cart-item-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--gold-primary);
+}
+
+.cart-qty-spinner {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.2rem;
+}
+
+.cart-qty-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-qty-btn:hover {
+    background: var(--gold-primary);
+    color: #0b0d11;
+}
+
+.cart-qty-num {
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-width: 22px;
+    text-align: center;
+}
+
+.cart-item-del {
+    background: transparent;
+    color: #f87171;
+    font-size: 1rem;
+    padding: 0.4rem;
+}
+
+.cart-item-del:hover {
+    color: var(--danger-red);
+    transform: scale(1.15);
+}
+
+/* Drawer Footer */
+.drawer-footer {
+    padding: 1.4rem 1.8rem;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    max-height: 58vh;
+    overflow-y: auto;
+}
+
+.pos-coupon-box {
+    margin-bottom: 1.2rem;
+}
+
+.coupon-group {
+    position: relative;
+    display: flex;
+}
+
+.coupon-group i {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+}
+
+.coupon-group input {
+    flex-grow: 1;
+    padding: 0.65rem 0.9rem 0.65rem 2.4rem;
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    text-transform: uppercase;
+}
+
+.coupon-group button {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    font-weight: 800;
+    padding: 0 1.2rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.85rem;
+}
+
+.quick-coupons {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.chip-coupon {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px dashed var(--gold-primary);
+    color: var(--gold-bright);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+}
+
+.coupon-alert {
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+}
+.coupon-alert.success { color: var(--success-green); }
+.coupon-alert.error { color: var(--danger-red); }
+
+.pos-calculation-breakdown {
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.calc-row strong {
+    color: var(--text-primary);
+}
+
+.split-bill-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.8rem;
+    margin: 0.8rem 0;
+}
+
+.split-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.split-header select {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+}
+
+.split-result {
+    font-size: 0.82rem;
+    color: var(--gold-bright);
+    margin-top: 0.3rem;
+}
+
+.calc-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.8rem 0;
+}
+
+.total-highlight {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0;
+}
+
+.total-highlight h3 {
+    color: var(--gold-primary);
+    font-size: 1.4rem;
+}
+
+.pos-customer-form {
+    margin-bottom: 1.2rem;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.pos-customer-form input,
+.pos-customer-form select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-base);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.88rem;
+}
+
+.form-row-extra {
+    margin-bottom: 0.6rem;
+}
+
+.payment-method-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.payment-method-row label {
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.pos-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* ================= 9. PRINTABLE TAX INVOICE & KOT MODALS ================= */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-window {
+    background: #ffffff;
+    color: #111827;
+    border-radius: var(--radius-lg);
+    max-width: 680px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.6rem;
+    background: #0f172a;
+    color: #fff;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn-print-tax {
+    background: var(--gold-primary);
+    color: #0b0d11;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+}
+
+.btn-close-window {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.printable-invoice-body {
+    padding: 2.2rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+.tax-receipt-header {
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.receipt-crown {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0.6rem;
+    background: #0f172a;
+    color: #f59e0b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.tax-receipt-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 1.5px;
+}
+
+.receipt-tagline {
+    font-weight: bold;
+    color: #d97706;
+}
+
+.tax-reg-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: bold;
+    background: #f1f5f9;
+    padding: 0.3rem;
+    border-radius: 4px;
+}
+
+.receipt-dashed-line {
+    border-top: 1px dashed #94a3b8;
+    margin: 1.1rem 0;
+}
+
+.tax-meta-grid {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.6;
+}
+
+.badge-table {
+    background: #e2e8f0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.tax-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.tax-table th {
+    border-bottom: 2px solid #0f172a;
+    padding: 0.6rem 0.3rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.tax-table td {
+    padding: 0.6rem 0.3rem;
+    border-bottom: 1px dotted #cbd5e1;
+}
+
+.tax-totals-box {
+    line-height: 1.7;
+}
+
+.tax-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.grand-total-highlight {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0f172a;
+    padding: 0.4rem 0;
+}
+
+.tax-payment-verification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+}
+
+.stamp-paid {
+    display: inline-block;
+    border: 2px solid #16a34a;
+    color: #16a34a;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transform: rotate(-4deg);
+}
+
+.receipt-qr-code {
+    text-align: center;
+    color: #0f172a;
+}
+
+.tax-footer {
+    text-align: center;
+    margin-top: 1.2rem;
+    color: #64748b;
+    font-size: 0.78rem;
+}
+
+.modal-bottom-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.6rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* KOT Modal Specifics */
+.kot-window {
+    max-width: 480px;
+}
+
+.kot-receipt-body {
+    padding: 2rem;
+    font-family: var(--font-mono);
+}
+
+.kot-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.kot-table {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+}
+
+.kot-table th, .kot-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.kot-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+/* ================= 11. LUCKY SPIN THE WHEEL ================= */
+.wheel-window {
+    max-width: 500px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+.wheel-body {
+    padding: 2rem;
+}
+
+.wheel-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 1.8rem auto;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.2rem;
+    color: var(--gold-primary);
+    z-index: 10;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid var(--gold-primary);
+    box-shadow: 0 0 25px var(--gold-glow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+}
+
+.wheel-section {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel-section span {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #fff;
+    transform: rotate(45deg);
+}
+
+.wheel-section.s1 { background: #d97706; transform: rotate(0deg) skewY(-30deg); }
+.wheel-section.s2 { background: #0f172a; transform: rotate(60deg) skewY(-30deg); }
+.wheel-section.s3 { background: #b45309; transform: rotate(120deg) skewY(-30deg); }
+.wheel-section.s4 { background: #1e293b; transform: rotate(180deg) skewY(-30deg); }
+.wheel-section.s5 { background: #f59e0b; transform: rotate(240deg) skewY(-30deg); }
+.wheel-section.s6 { background: #334155; transform: rotate(300deg) skewY(-30deg); }
+
+.wheel-result {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px dashed var(--success-green);
+    border-radius: var(--radius-sm);
+    color: var(--success-green);
+    font-weight: 700;
+}
+
+/* ================= 12. TOAST NOTIFICATIONS ================= */
+.toast-hub {
+    position: fixed;
+    top: 5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    pointer-events: none;
+}
+
+.toast-msg {
+    background: #18202c;
+    color: #fff;
+    border-left: 4px solid var(--gold-primary);
+    padding: 0.9rem 1.4rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+    pointer-events: auto;
+}
+
+.toast-msg.success { border-left-color: var(--success-green); }
+.toast-msg.error { border-left-color: var(--danger-red); }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1024px) {
+    .hero-container,
+    .builder-layout,
+    .floorplan-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .hero-showcase {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .builder-preview-card {
+        position: static;
+    }
+
+    .tables-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .top-announcement .announcement-center {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1.4rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-soft);
+        transform: translateY(-120%);
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .tracker-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .tracker-steps::before {
+        display: none;
+    }
+
+    .tables-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-group-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= PRINT STYLESHEET ================= */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #billModalBackdrop,
+    #billModalWindow,
+    #printableInvoiceDoc,
+    #printableInvoiceDoc *,
+    #kotModalBackdrop,
+    #kotReceiptDoc,
+    #kotReceiptDoc * {
+        visibility: visible;
+    }
+
+    #billModalBackdrop, #kotModalBackdrop {
+        position: absolute;
+        inset: 0;
+        background: transparent !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    #billModalWindow, .kot-window {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        position: static !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .printable-invoice-body, .kot-receipt-body {
+        padding: 0.5cm !important;
+        color: #000 !important;
+        background: #fff !important;
+        font-size: 11pt !important;
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- ================= 1. TOP ANNOUNCEMENT BAR ================= -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <div class="announcement-left">
+                <span class="live-dot"></span>
+                <span><strong>Kitchen Status:</strong> Open for Dine-In & Express Handi Delivery</span>
+            </div>
+            <div class="announcement-center">
+                <span class="badge-promo"><i class="fa-solid fa-gift"></i> USE CODE: <strong>ROYAL20</strong> FOR 20% OFF</span>
+            </div>
+            <div class="announcement-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun" id="themeIcon"></i>
+                    <span id="themeText">Light</span>
+                </button>
+                <a href="#order-tracker" class="track-link"><i class="fa-solid fa-route"></i> Track Order</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 2. LUXURY NAVIGATION BAR ================= -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-shield">
+                    <i class="fa-solid fa-fire-burner"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ZAIKA GRAND</span>
+                    <span class="logo-sub">ROYAL BIRYANI & FINE DINING</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-item active">Home</a></li>
+                <li><a href="#biryani-builder" class="nav-item"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Build Biryani</a></li>
+                <li><a href="#menu" class="nav-item">Food Menu</a></li>
+                <li><a href="#floorplan" class="nav-item">Reserve Table</a></li>
+                <li><a href="#order-tracker" class="nav-item">Live Tracker</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-spin-wheel" id="spinWheelBtn" title="Spin for Discount!">
+                    <i class="fa-solid fa-dharmachakra"></i>
+                    <span>Win Coupon</span>
+                </button>
+
+                <button class="cart-trigger-btn" id="cartOpenBtn" aria-label="Open Order Cart">
+                    <div class="cart-icon-wrapper">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span class="cart-badge-count" id="cartBadge">0</span>
+                    </div>
+                    <div class="cart-btn-info">
+                        <small>Total Bill</small>
+                        <strong id="cartHeaderTotal">â‚¹0.00</strong>
+                    </div>
+                </button>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= 3. HERO / PARALLAX SHOWCASE ================= -->
+    <header class="hero" id="home">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <i class="fa-solid fa-crown text-gold"></i>
+                    <span>Nizam-i-Dawat â€¢ 100% Charcoal Dum Handi</span>
+                </div>
+                <h1 class="hero-heading">
+                    The Pinnacle of <br>
+                    <span class="gradient-text">Royal Hyderabadi</span> Biryani
+                </h1>
+                <p class="hero-desc">
+                    Slow-cooked in dough-sealed earthen clay pots with 24-month aged long-grain basmati, rare Kashmiri saffron, and meat marinated in 32 secret ancestral spices.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#biryani-builder" class="btn btn-luxury">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Customize Your Handi
+                    </a>
+                    <a href="#menu" class="btn btn-glass">
+                        <i class="fa-solid fa-book-open"></i> Explore Food Menu
+                    </a>
+                    <a href="#floorplan" class="btn btn-outline-gold">
+                        <i class="fa-solid fa-chair"></i> Choose Table Seat
+                    </a>
+                </div>
+
+                <div class="hero-metrics">
+                    <div class="metric-card">
+                        <i class="fa-solid fa-star text-gold"></i>
+                        <div>
+                            <h4>4.96 / 5.0</h4>
+                            <span>35,000+ Foodies</span>
+                        </div>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-card">
+                        <i class="fa-solid fa-fire text-gold"></i>
+                        <div>
+                            <h4>24 Handis</h4>
+                            <span>Slow-Dum Right Now</span>
+                        </div>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-card">
+                        <i class="fa-solid fa-bolt text-gold"></i>
+                        <div>
+                            <h4>28 Mins</h4>
+                            <span>Avg Clay Pot Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Floating 3D Showcase Card -->
+            <div class="hero-showcase">
+                <div class="showcase-card">
+                    <div class="showcase-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=900&q=80" alt="Royal Handi Dum Biryani">
+                        <div class="steam-animation"></div>
+                        <span class="showcase-pill">ðŸ‘‘ Signature Masterpiece</span>
+                    </div>
+                    <div class="showcase-body">
+                        <div class="showcase-header">
+                            <div>
+                                <h3>Shahi Gosht Dum Biryani</h3>
+                                <p class="text-muted">Aged Basmati â€¢ Tender Baby Goat â€¢ Saffron</p>
+                            </div>
+                            <span class="showcase-price">â‚¹450</span>
+                        </div>
+                        <div class="showcase-tags">
+                            <span><i class="fa-solid fa-pepper-hot text-danger"></i> Medium Spicy</span>
+                            <span><i class="fa-solid fa-clock"></i> 35m Slow Dum</span>
+                            <span><i class="fa-solid fa-bowl-food"></i> With Mirchi Salan</span>
+                        </div>
+                        <button class="btn btn-luxury btn-block" onclick="quickAdd('item-mutton-dum', 'Shahi Gosht Dum Biryani', 450, 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=900&q=80')">
+                            <i class="fa-solid fa-plus"></i> Add To Order & Bill
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 4. INTERACTIVE "BUILD YOUR BIRYANI" ENGINE ================= -->
+    <section class="section builder-section" id="biryani-builder">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> Interactive Culinary Studio</span>
+                <h2 class="section-title">Build Your Own Royal Handi Biryani</h2>
+                <p class="section-desc">Customize every layer of your biryaniâ€”from royal meats and dum style to spice intensity and chef add-ons.</p>
+            </div>
+
+            <div class="builder-layout">
+                <!-- Steps Form Controls -->
+                <div class="builder-controls">
+                    <!-- Step 1: Base Selection -->
+                    <div class="builder-step active" data-step="1">
+                        <div class="step-header">
+                            <span class="step-num">01</span>
+                            <h4>Select Your Protein / Veg Base</h4>
+                        </div>
+                        <div class="builder-options-grid" id="baseOptions">
+                            <label class="builder-option selected">
+                                <input type="radio" name="biryaniBase" value="Chicken" data-price="340" checked>
+                                <div class="option-card">
+                                    <i class="fa-solid fa-drumstick-bite"></i>
+                                    <strong>Royal Chicken</strong>
+                                    <small>Juicy cuts marinated in ginger garlic & yogurt</small>
+                                    <span class="option-price">â‚¹340</span>
+                                </div>
+                            </label>
+
+                            <label class="builder-option">
+                                <input type="radio" name="biryaniBase" value="Mutton" data-price="460">
+                                <div class="option-card">
+                                    <i class="fa-solid fa-bone"></i>
+                                    <strong>Baby Goat Mutton</strong>
+                                    <small>Tender cutlet pieces slow cooked on charcoal</small>
+                                    <span class="option-price">â‚¹460</span>
+                                </div>
+                            </label>
+
+                            <label class="builder-option">
+                                <input type="radio" name="biryaniBase" value="Paneer" data-price="290">
+                                <div class="option-card">
+                                    <i class="fa-solid fa-cheese"></i>
+                                    <strong>Shahi Malai Paneer</strong>
+                                    <small>Charcoal tandoor grilled cottage cheese</small>
+                                    <span class="option-price">â‚¹290</span>
+                                </div>
+                            </label>
+
+                            <label class="builder-option">
+                                <input type="radio" name="biryaniBase" value="Prawns" data-price="490">
+                                <div class="option-card">
+                                    <i class="fa-solid fa-shrimp"></i>
+                                    <strong>Jumbo King Prawns</strong>
+                                    <small>Coastal spiced ghee roasted tiger prawns</small>
+                                    <span class="option-price">â‚¹490</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dum Recipe Style -->
+                    <div class="builder-step" data-step="2">
+                        <div class="step-header">
+                            <span class="step-num">02</span>
+                            <h4>Choose Regional Dum Cooking Style</h4>
+                        </div>
+                        <div class="builder-options-grid" id="styleOptions">
+                            <label class="builder-option selected">
+                                <input type="radio" name="biryaniStyle" value="Hyderabadi Kachchi Dum" data-extra="0" checked>
+                                <div class="option-card">
+                                    <strong>Hyderabadi Kachchi Dum</strong>
+                                    <small>Raw marinated meat cooked together with 70% parboiled rice</small>
+                                    <span class="option-badge">Authentic</span>
+                                </div>
+                            </label>
+
+                            <label class="builder-option">
+                                <input type="radio" name="biryaniStyle" value="Lucknowi Awadhi Dum" data-extra="30">
+                                <div class="option-card">
+                                    <strong>Lucknowi Awadhi Dum</strong>
+                                    <small>Subtle, fragrant with kewra water, saffron & mild cardamoms</small>
+                                    <span class="option-badge">+â‚¹30</span>
+                                </div>
+                            </label>
+
+                            <label class="builder-option">
+                                <input type="radio" name="biryaniStyle" value="Andhra Fiery Dum" data-extra="20">
+                                <div class="option-card">
+                                    <strong>Fiery Andhra Guntur Style</strong>
+                                    <small>Packed with red guntur chilies, shallots, and crushed pepper</small>
+                                    <span class="option-badge">+â‚¹20</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Spice Heat Level -->
+                    <div class="builder-step" data-step="3">
+                        <div class="step-header">
+                            <span class="step-num">03</span>
+                            <h4>Select Spice Heat Intensity</h4>
+                        </div>
+                        <div class="spice-selector">
+                            <button type="button" class="spice-btn" data-spice="Mild">
+                                <span>ðŸŒ¶ï¸</span>
+                                <strong>Mild Fragrant</strong>
+                                <small>Gentle aromatic spices</small>
+                            </button>
+                            <button type="button" class="spice-btn active" data-spice="Medium">
+                                <span>ðŸŒ¶ï¸ðŸŒ¶ï¸</span>
+                                <strong>Royal Medium</strong>
+                                <small>Balanced authentic Nizami</small>
+                            </button>
+                            <button type="button" class="spice-btn" data-spice="Fiery">
+                                <span>ðŸŒ¶ï¸ðŸŒ¶ï¸ðŸŒ¶ï¸</span>
+                                <strong>Fiery Hot</strong>
+                                <small>Spiced chili punch</small>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add-Ons & Accompaniments -->
+                    <div class="builder-step" data-step="4">
+                        <div class="step-header">
+                            <span class="step-num">04</span>
+                            <h4>Chef Special Add-ons</h4>
+                        </div>
+                        <div class="addons-grid">
+                            <label class="addon-chip">
+                                <input type="checkbox" name="addons" value="Double Golden Fried Cashews" data-price="40">
+                                <span>+ Roasted Cashews (â‚¹40)</span>
+                            </label>
+                            <label class="addon-chip">
+                                <input type="checkbox" name="addons" value="Spiced Boiled Egg (2pcs)" data-price="30">
+                                <span>+ 2x Spiced Eggs (â‚¹30)</span>
+                            </label>
+                            <label class="addon-chip">
+                                <input type="checkbox" name="addons" value="Extra Mirchi Ka Salan Bowl" data-price="35">
+                                <span>+ Extra Salan (â‚¹35)</span>
+                            </label>
+                            <label class="addon-chip">
+                                <input type="checkbox" name="addons" value="Burani Garlic Raita" data-price="30">
+                                <span>+ Burani Garlic Raita (â‚¹30)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Dynamic Handi Summary & Add to Cart -->
+                <div class="builder-preview-card">
+                    <div class="preview-header">
+                        <i class="fa-solid fa-receipt text-gold"></i>
+                        <h3>Your Custom Handi</h3>
+                    </div>
+
+                    <div class="preview-handi-visual">
+                        <img id="builderPreviewImg" src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80" alt="Custom Biryani Handi">
+                        <div class="preview-badge" id="previewBadge">Chicken â€¢ Kachchi Dum</div>
+                    </div>
+
+                    <div class="preview-spec-list">
+                        <div class="spec-row">
+                            <span>Protein / Base:</span>
+                            <strong id="specBase">Royal Chicken</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Dum Technique:</span>
+                            <strong id="specStyle">Hyderabadi Kachchi Dum</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Spice Heat:</span>
+                            <strong id="specSpice">Royal Medium ðŸŒ¶ï¸ðŸŒ¶ï¸</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Add-ons:</span>
+                            <strong id="specAddons">None</strong>
+                        </div>
+                    </div>
+
+                    <div class="preview-price-box">
+                        <small>Calculated Handi Price</small>
+                        <h2 id="builderCalculatedPrice">â‚¹340</h2>
+                    </div>
+
+                    <button class="btn btn-luxury btn-block" id="addCustomHandiBtn">
+                        <i class="fa-solid fa-cart-plus"></i> Add Custom Handi To Bill
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 5. FULL ADVANCED FOOD MENU ================= -->
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Gourmet Selection</span>
+                <h2 class="section-title">The Master Chef's Menu</h2>
+                <p class="section-desc">Explore royal Nizami starters, charcoal kebabs, slow-simmered curries, tandoor breads, and decadent sweets.</p>
+            </div>
+
+            <!-- Advanced Filter Bar -->
+            <div class="menu-filter-bar">
+                <!-- Search Box -->
+                <div class="menu-search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="menuSearch" placeholder="Search biryani, tikka, curries, naan, desserts...">
+                    <button id="clearMenuSearch" class="clear-btn" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Dietary Pills -->
+                <div class="diet-filter-group">
+                    <button class="diet-filter-pill active" data-diet="all">All Items</button>
+                    <button class="diet-filter-pill veg-pill" data-diet="veg">
+                        <span class="dot-veg"></span> Pure Veg
+                    </button>
+                    <button class="diet-filter-pill nonveg-pill" data-diet="nonveg">
+                        <span class="dot-nonveg"></span> Non-Veg
+                    </button>
+                </div>
+
+                <!-- Sorter -->
+                <div class="sort-box">
+                    <label for="menuSortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i></label>
+                    <select id="menuSortSelect">
+                        <option value="featured">Featured Chef Choice</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Top Rated (4.8+)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="category-scroll-container">
+                <div class="category-tabs" id="categoryTabs">
+                    <button class="cat-pill active" data-category="all">
+                        <i class="fa-solid fa-border-all"></i> All Dishes
+                    </button>
+                    <button class="cat-pill" data-category="biryani">
+                        <i class="fa-solid fa-bowl-rice"></i> Handi Biryanis
+                    </button>
+                    <button class="cat-pill" data-category="starters">
+                        <i class="fa-solid fa-drumstick-bite"></i> Charcoal Kebabs
+                    </button>
+                    <button class="cat-pill" data-category="curries">
+                        <i class="fa-solid fa-bowl-food"></i> Shahi Curries
+                    </button>
+                    <button class="cat-pill" data-category="breads">
+                        <i class="fa-solid fa-bread-slice"></i> Tandoor Breads
+                    </button>
+                    <button class="cat-pill" data-category="desserts">
+                        <i class="fa-solid fa-ice-cream"></i> Royal Desserts
+                    </button>
+                    <button class="cat-pill" data-category="drinks">
+                        <i class="fa-solid fa-champagne-glasses"></i> Coolers & Chaas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Live Status Counter -->
+            <div class="menu-meta-status">
+                <span id="menuCountFeedback">Showing all items</span>
+                <span class="vat-note"><i class="fa-solid fa-circle-info"></i> Prices inclusive of all culinary preparation</span>
+            </div>
+
+            <!-- Dynamic Food Cards Grid -->
+            <div class="menu-grid" id="menuGridContainer">
+                <!-- Dynamically populated by JS with rich micro-details -->
+            </div>
+
+            <!-- No results state -->
+            <div class="no-results-box hidden" id="noResultsBox">
+                <i class="fa-solid fa-utensils-slash"></i>
+                <h3>No dishes found matching your criteria</h3>
+                <p>Try searching for "biryani", "chicken", "paneer", or clear filters.</p>
+                <button class="btn btn-luxury" id="resetFilters">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. INTERACTIVE 3D/VISUAL TABLE RESERVATION & FLOORPLAN ================= -->
+    <section class="section floorplan-section" id="floorplan">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Real-Time Table Booking</span>
+                <h2 class="section-title">Select Your Table & Dining Zone</h2>
+                <p class="section-desc">Choose your preferred table on our interactive seating layout for romantic dinners, family banquets, or business meals.</p>
+            </div>
+
+            <div class="floorplan-layout">
+                <!-- Visual Table Map -->
+                <div class="visual-map-card">
+                    <div class="map-legend">
+                        <div class="legend-item"><span class="table-sample available"></span> Available</div>
+                        <div class="legend-item"><span class="table-sample selected"></span> Selected Table</div>
+                        <div class="legend-item"><span class="table-sample occupied"></span> Booked</div>
+                    </div>
+
+                    <div class="dining-zones">
+                        <!-- Zone 1: Main AC Royal Banquet -->
+                        <div class="zone-block">
+                            <span class="zone-label"><i class="fa-solid fa-crown text-gold"></i> Royal AC Banquet Hall</span>
+                            <div class="tables-grid">
+                                <button type="button" class="table-node" data-table="T-01" data-capacity="2" data-zone="AC Hall">
+                                    <span class="t-id">T-01</span>
+                                    <small><i class="fa-solid fa-user"></i> 2</small>
+                                </button>
+                                <button type="button" class="table-node" data-table="T-02" data-capacity="4" data-zone="AC Hall">
+                                    <span class="t-id">T-02</span>
+                                    <small><i class="fa-solid fa-user"></i> 4</small>
+                                </button>
+                                <button type="button" class="table-node occupied" disabled data-table="T-03" data-capacity="4" data-zone="AC Hall">
+                                    <span class="t-id">T-03</span>
+                                    <small>Booked</small>
+                                </button>
+                                <button type="button" class="table-node" data-table="T-04" data-capacity="6" data-zone="AC Hall">
+                                    <span class="t-id">T-04</span>
+                                    <small><i class="fa-solid fa-user"></i> 6</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Zone 2: Candlelight Rooftop Garden -->
+                        <div class="zone-block">
+                            <span class="zone-label"><i class="fa-solid fa-moon text-gold"></i> Rooftop Candlelight Lounge</span>
+                            <div class="tables-grid">
+                                <button type="button" class="table-node" data-table="R-01" data-capacity="2" data-zone="Rooftop">
+                                    <span class="t-id">R-01</span>
+                                    <small><i class="fa-solid fa-user"></i> 2</small>
+                                </button>
+                                <button type="button" class="table-node" data-table="R-02" data-capacity="2" data-zone="Rooftop">
+                                    <span class="t-id">R-02</span>
+                                    <small><i class="fa-solid fa-user"></i> 2</small>
+                                </button>
+                                <button type="button" class="table-node occupied" disabled data-table="R-03" data-capacity="4" data-zone="Rooftop">
+                                    <span class="t-id">R-03</span>
+                                    <small>Booked</small>
+                                </button>
+                                <button type="button" class="table-node" data-table="R-04" data-capacity="4" data-zone="Rooftop">
+                                    <span class="t-id">R-04</span>
+                                    <small><i class="fa-solid fa-user"></i> 4</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Zone 3: Private VIP Cabin -->
+                        <div class="zone-block">
+                            <span class="zone-label"><i class="fa-solid fa-shield-cat text-gold"></i> Nizam Private Family Cabins</span>
+                            <div class="tables-grid">
+                                <button type="button" class="table-node" data-table="VIP-01" data-capacity="8" data-zone="VIP Cabin">
+                                    <span class="t-id">VIP-01</span>
+                                    <small><i class="fa-solid fa-users"></i> 8 Pax</small>
+                                </button>
+                                <button type="button" class="table-node" data-table="VIP-02" data-capacity="12" data-zone="VIP Cabin">
+                                    <span class="t-id">VIP-02</span>
+                                    <small><i class="fa-solid fa-users"></i> 12 Pax</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Details Form -->
+                <div class="reservation-form-card">
+                    <div class="res-card-header">
+                        <i class="fa-solid fa-calendar-check text-gold"></i>
+                        <div>
+                            <h3>Confirm Your Table</h3>
+                            <small>Selected Table: <strong id="selectedTableDisplay" class="text-gold">Please pick a table on the map</strong></small>
+                        </div>
+                    </div>
+
+                    <form id="reservationForm" onsubmit="handleReservationSubmit(event)">
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="guestName">Full Name *</label>
+                                <input type="text" id="guestName" placeholder="e.g. Vikramaditya" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guestPhone">Mobile Number *</label>
+                                <input type="tel" id="guestPhone" placeholder="e.g. +91 9876543210" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="resDate">Reservation Date *</label>
+                                <input type="date" id="resDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resSlot">Dining Time Slot *</label>
+                                <select id="resSlot" required>
+                                    <option value="12:30 PM - Lunch">12:30 PM (Lunch)</option>
+                                    <option value="01:30 PM - Lunch">01:30 PM (Lunch)</option>
+                                    <option value="02:30 PM - Lunch">02:30 PM (Lunch)</option>
+                                    <option value="07:30 PM - Dinner" selected>07:30 PM (Dinner)</option>
+                                    <option value="08:30 PM - Dinner">08:30 PM (Dinner)</option>
+                                    <option value="09:30 PM - Dinner">09:30 PM (Dinner)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialNotes">Special Request (Optional)</label>
+                            <input type="text" id="specialNotes" placeholder="Anniversary celebration, baby chair, candle decor...">
+                        </div>
+
+                        <button type="submit" class="btn btn-luxury btn-block" id="reserveSubmitBtn">
+                            <i class="fa-solid fa-check-circle"></i> Reserve Table Now
+                        </button>
+                    </form>
+
+                    <!-- Confirmed Booking Card -->
+                    <div class="res-success-box hidden" id="resSuccessBox">
+                        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h4>Table Reserved Successfully!</h4>
+                        <div class="res-ticket" id="resTicketContent"></div>
+                        <button class="btn btn-glass btn-block" id="bookAnotherTableBtn">Book Another Table</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 7. LIVE SIMULATED ORDER TRACKER ================= -->
+    <section class="section tracker-section" id="order-tracker">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Real-Time Kitchen Feed</span>
+                <h2 class="section-title">Live Handi Cooking & Delivery Tracker</h2>
+                <p class="section-desc">Track every step of your order from handi sealing to your dining table.</p>
+            </div>
+
+            <div class="tracker-card">
+                <div class="tracker-header">
+                    <div>
+                        <span class="badge-live-order">Active Order: <strong id="liveOrderNumber">#ZG-89241</strong></span>
+                        <h3 id="trackerCustomerDisplay">Customer: Guest Foodie</h3>
+                    </div>
+                    <div class="tracker-timer">
+                        <small>Estimated Handi Serving In</small>
+                        <h2 id="trackerTimer">24:15</h2>
+                    </div>
+                </div>
+
+                <!-- 4 Step Timeline -->
+                <div class="tracker-steps">
+                    <div class="t-step completed">
+                        <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                        <div class="step-text">
+                            <strong>Order Verified</strong>
+                            <small>Sent to Head Chef</small>
+                        </div>
+                    </div>
+                    <div class="t-step active">
+                        <div class="step-circle"><i class="fa-solid fa-fire-burner"></i></div>
+                        <div class="step-text">
+                            <strong>Clay Handi Dum</strong>
+                            <small>Sealed over charcoal embers</small>
+                        </div>
+                    </div>
+                    <div class="t-step">
+                        <div class="step-circle"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <div class="step-text">
+                            <strong>Garnish & Quality</strong>
+                            <small>Saffron infused & tested</small>
+                        </div>
+                    </div>
+                    <div class="t-step">
+                        <div class="step-circle"><i class="fa-solid fa-bell-concierge"></i></div>
+                        <div class="step-text">
+                            <strong>Ready to Serve</strong>
+                            <small>Enjoy your royal feast!</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 8. ADVANCED CART & BILLING POS DRAWER ================= -->
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+    <aside class="pos-cart-drawer" id="posCartDrawer" aria-label="Restaurant POS and Billing Drawer">
+        <!-- Drawer Header -->
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <i class="fa-solid fa-receipt text-gold"></i>
+                <div>
+                    <h3>Billing Terminal & Order</h3>
+                    <small>Zaika Grand POS System v3.8</small>
+                </div>
+            </div>
+            <button class="close-drawer-btn" id="closeCartDrawerBtn" aria-label="Close cart">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Dining Mode Selector -->
+        <div class="pos-dining-tabs">
+            <label class="dining-tab">
+                <input type="radio" name="posDiningType" value="Dine-in" checked>
+                <span><i class="fa-solid fa-utensils"></i> Dine-In</span>
+            </label>
+            <label class="dining-tab">
+                <input type="radio" name="posDiningType" value="Delivery">
+                <span><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+            </label>
+            <label class="dining-tab">
+                <input type="radio" name="posDiningType" value="Takeaway">
+                <span><i class="fa-solid fa-bag-shopping"></i> Takeaway</span>
+            </label>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div class="cart-scroll-items" id="cartItemList">
+            <!-- Dynamically populated or empty -->
+        </div>
+
+        <!-- Drawer Calculations & Bill Engine -->
+        <div class="drawer-footer">
+            <!-- Coupon Box -->
+            <div class="pos-coupon-box">
+                <div class="coupon-group">
+                    <i class="fa-solid fa-tags"></i>
+                    <input type="text" id="posCouponInput" placeholder="Enter coupon (e.g. ROYAL20)">
+                    <button type="button" id="applyPosCoupon">Apply</button>
+                </div>
+                <div class="quick-coupons">
+                    <span>Quick: </span>
+                    <button type="button" class="chip-coupon" data-code="BIRYANI50">BIRYANI50 (-â‚¹50)</button>
+                    <button type="button" class="chip-coupon" data-code="ROYAL20">ROYAL20 (20% OFF)</button>
+                    <button type="button" class="chip-coupon" data-code="FREESHIP">FREESHIP</button>
+                </div>
+                <div class="coupon-alert" id="couponAlertMsg"></div>
+            </div>
+
+            <!-- Itemized Calculation -->
+            <div class="pos-calculation-breakdown">
+                <div class="calc-row">
+                    <span>Subtotal</span>
+                    <strong id="posSubtotal">â‚¹0.00</strong>
+                </div>
+                <div class="calc-row text-success hidden" id="posDiscountRow">
+                    <span>Coupon Discount</span>
+                    <strong id="posDiscount">-â‚¹0.00</strong>
+                </div>
+                <div class="calc-row">
+                    <span>GST (5% â€” CGST 2.5% + SGST 2.5%)</span>
+                    <strong id="posGst">â‚¹0.00</strong>
+                </div>
+                <div class="calc-row" id="posDeliveryRow">
+                    <span>Packaging & Delivery Charge</span>
+                    <strong id="posDeliveryCharge">â‚¹40.00</strong>
+                </div>
+
+                <!-- Bill Splitter Calculator -->
+                <div class="split-bill-section">
+                    <div class="split-header">
+                        <label><i class="fa-solid fa-users"></i> Split Bill with Friends:</label>
+                        <select id="splitPersons">
+                            <option value="1">1 Person (No Split)</option>
+                            <option value="2">2 Persons</option>
+                            <option value="3">3 Persons</option>
+                            <option value="4">4 Persons</option>
+                            <option value="5">5 Persons</option>
+                        </select>
+                    </div>
+                    <div class="split-result hidden" id="splitResultDisplay">
+                        <span>Each Pays: </span>
+                        <strong id="eachPersonPay">â‚¹0.00</strong>
+                    </div>
+                </div>
+
+                <div class="calc-divider"></div>
+
+                <div class="calc-row total-highlight">
+                    <span>Net Amount Payable</span>
+                    <h3 id="posGrandTotal">â‚¹0.00</h3>
+                </div>
+            </div>
+
+            <!-- Customer & Dining Details -->
+            <div class="pos-customer-form">
+                <div class="input-grid">
+                    <input type="text" id="custNameInput" placeholder="Customer Name *" value="Hema Sundhar">
+                    <input type="tel" id="custPhoneInput" placeholder="Mobile Number *" value="+91 9876543210">
+                </div>
+                <div class="form-row-extra">
+                    <input type="text" id="custLocationInput" placeholder="Table Number (e.g. T-02) / Delivery Address" value="Table T-02 (AC Royal Banquet)">
+                </div>
+                <div class="payment-method-row">
+                    <label><i class="fa-solid fa-credit-card"></i> Pay Mode:</label>
+                    <select id="custPayMethod">
+                        <option value="UPI / QR Code">UPI (GPay / PhonePe / Paytm)</option>
+                        <option value="Cash at Counter">Cash at Counter</option>
+                        <option value="Credit / Debit Card">Credit / Debit Card</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Bill Checkout Buttons -->
+            <div class="pos-actions">
+                <button class="btn btn-luxury btn-block" id="generateTaxInvoiceBtn">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> Generate Tax Bill & Invoice
+                </button>
+                <button class="btn btn-glass btn-block" id="generateKotBtn">
+                    <i class="fa-solid fa-kitchen-set"></i> View Kitchen KOT Ticket
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ================= 9. ADVANCED PRINTABLE TAX INVOICE MODAL ================= -->
+    <div class="modal-backdrop" id="billModalBackdrop">
+        <div class="modal-window" id="billModalWindow">
+            <div class="modal-top-bar no-print">
+                <div class="modal-status-badge">
+                    <i class="fa-solid fa-circle-check text-success"></i> Official GST Invoice Generated
+                </div>
+                <div class="modal-top-actions">
+                    <button class="btn btn-print-tax" id="printTaxInvoiceBtn">
+                        <i class="fa-solid fa-print"></i> Print Official Bill
+                    </button>
+                    <button class="btn-close-window" id="closeBillModalBtn" aria-label="Close bill modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Clean Printable Invoice Document -->
+            <div class="printable-invoice-body" id="printableInvoiceDoc">
+                <!-- Restaurant Header -->
+                <div class="tax-receipt-header">
+                    <div class="receipt-crown"><i class="fa-solid fa-crown"></i></div>
+                    <h2>ZAIKA GRAND LUXURY RESTAURANT</h2>
+                    <p class="receipt-tagline">Nizami Dum Biryani & Heritage Mughlai Cuisine</p>
+                    <p>Plot #42, Heritage Boulevard, Jubilee Hills, Hyderabad - 500033</p>
+                    <p>Phone: +91 98765 43210 / 040-23456789 | Email: billing@zaikagrand.com</p>
+                    <div class="tax-reg-bar">
+                        <span><strong>GSTIN:</strong> 36AAACZ8942K1Z9</span>
+                        <span><strong>FSSAI Lic No:</strong> 13621014000342</span>
+                    </div>
+                </div>
+
+                <div class="receipt-dashed-line"></div>
+
+                <!-- Invoice Meta Details Grid -->
+                <div class="tax-meta-grid">
+                    <div>
+                        <p><strong>Tax Invoice No:</strong> <span id="invNumber">#ZG-2026-9042</span></p>
+                        <p><strong>Date & Time:</strong> <span id="invDateTime">24-Oct-2026, 12:45 PM</span></p>
+                        <p><strong>Server / Cashier:</strong> Station #03 (Rajesh K.)</p>
+                    </div>
+                    <div class="text-right">
+                        <p><strong>Customer:</strong> <span id="invCustomer">Hema Sundhar</span></p>
+                        <p><strong>Phone:</strong> <span id="invPhone">+91 9876543210</span></p>
+                        <p><strong>Order Mode:</strong> <span id="invDiningType" class="badge-table">Dine-In (Table T-02)</span></p>
+                    </div>
+                </div>
+
+                <div class="receipt-dashed-line"></div>
+
+                <!-- Itemized Invoice Table -->
+                <table class="tax-table">
+                    <thead>
+                        <tr>
+                            <th class="text-left">#</th>
+                            <th class="text-left">Item Description</th>
+                            <th class="text-center">HSN/SAC</th>
+                            <th class="text-center">Qty</th>
+                            <th class="text-right">Unit Rate</th>
+                            <th class="text-right">Amount (â‚¹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+
+                <div class="receipt-dashed-line"></div>
+
+                <!-- Tax Breakdown & Totals -->
+                <div class="tax-totals-box">
+                    <div class="tax-row">
+                        <span>Net Item Subtotal:</span>
+                        <strong id="invSubtotal">â‚¹0.00</strong>
+                    </div>
+                    <div class="tax-row text-success hidden" id="invDiscountRow">
+                        <span>Promotional Coupon Discount:</span>
+                        <strong id="invDiscount">-â‚¹0.00</strong>
+                    </div>
+                    <div class="tax-row">
+                        <span>CGST (2.5%):</span>
+                        <span id="invCgst">â‚¹0.00</span>
+                    </div>
+                    <div class="tax-row">
+                        <span>SGST (2.5%):</span>
+                        <span id="invSgst">â‚¹0.00</span>
+                    </div>
+                    <div class="tax-row" id="invDeliveryRow">
+                        <span>Packaging & Delivery Charge:</span>
+                        <span id="invDelivery">â‚¹0.00</span>
+                    </div>
+                    <div class="receipt-dashed-line"></div>
+                    <div class="tax-row grand-total-highlight">
+                        <span>NET AMOUNT PAYABLE:</span>
+                        <h2 id="invGrandTotal">â‚¹0.00</h2>
+                    </div>
+                </div>
+
+                <div class="receipt-dashed-line"></div>
+
+                <!-- Payment Verification Bar -->
+                <div class="tax-payment-verification">
+                    <div class="pay-stamp">
+                        <span class="stamp-paid">PAID & VERIFIED</span>
+                        <small>Mode: <strong id="invPaymentMode">UPI</strong></small>
+                    </div>
+                    <div class="receipt-qr-code">
+                        <i class="fa-solid fa-qrcode fa-3x"></i>
+                        <small>Scan for Digital Tax Invoice</small>
+                    </div>
+                </div>
+
+                <!-- Receipt Footnote -->
+                <div class="tax-footer">
+                    <p>*** THANK YOU FOR VISITING ZAIKA GRAND ***</p>
+                    <small>Goods once sold cannot be returned. Please visit us again!</small>
+                </div>
+            </div>
+
+            <!-- Modal Bottom Control -->
+            <div class="modal-bottom-bar no-print">
+                <button class="btn btn-outline-gold" id="startNewOrderBtn">
+                    <i class="fa-solid fa-rotate-left"></i> Start New Order
+                </button>
+                <button class="btn btn-luxury" id="bottomPrintTaxBtn">
+                    <i class="fa-solid fa-print"></i> Print Tax Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 10. KITCHEN ORDER TICKET (KOT) MODAL ================= -->
+    <div class="modal-backdrop" id="kotModalBackdrop">
+        <div class="modal-window kot-window">
+            <div class="modal-top-bar no-print">
+                <span class="modal-status-badge"><i class="fa-solid fa-fire text-gold"></i> KITCHEN ORDER TICKET (KOT)</span>
+                <button class="btn-close-window" id="closeKotModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="kot-receipt-body" id="kotReceiptDoc">
+                <div class="kot-header">
+                    <h2>*** KITCHEN ORDER TICKET ***</h2>
+                    <p><strong>KOT #:</strong> <span id="kotNumber">KOT-8942</span> | <strong>Time:</strong> <span id="kotTime">12:45 PM</span></p>
+                    <p><strong>Table / Order:</strong> <span id="kotTable" class="badge-table">Table T-02</span></p>
+                </div>
+                <hr>
+                <table class="kot-table">
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Dish Name</th>
+                            <th>Special Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kotTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+                <hr>
+                <p class="kot-footer">*** CHEF SIGNATURE: _______________ ***</p>
+            </div>
+            <div class="modal-bottom-bar no-print">
+                <button class="btn btn-luxury btn-block" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Print KOT for Kitchen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 11. LUCKY SPIN THE WHEEL MODAL ================= -->
+    <div class="modal-backdrop" id="wheelModalBackdrop">
+        <div class="modal-window wheel-window">
+            <div class="modal-top-bar">
+                <span class="modal-status-badge"><i class="fa-solid fa-gift text-gold"></i> Spin The Royal Wheel</span>
+                <button class="btn-close-window" id="closeWheelModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="wheel-body text-center">
+                <h3>Spin to Win Exclusive Feast Offers!</h3>
+                <p>Every spin guarantees a special secret discount coupon code.</p>
+                <div class="wheel-container">
+                    <div class="wheel-pointer"><i class="fa-solid fa-caret-down"></i></div>
+                    <div class="wheel" id="luckyWheel">
+                        <div class="wheel-section s1"><span>â‚¹50 OFF</span></div>
+                        <div class="wheel-section s2"><span>20% OFF</span></div>
+                        <div class="wheel-section s3"><span>FREE DESSERT</span></div>
+                        <div class="wheel-section s4"><span>â‚¹100 OFF</span></div>
+                        <div class="wheel-section s5"><span>FREE SHIP</span></div>
+                        <div class="wheel-section s6"><span>CHEF GIFT</span></div>
+                    </div>
+                </div>
+                <button class="btn btn-luxury btn-lg" id="spinActionBtn">
+                    <i class="fa-solid fa-play"></i> SPIN NOW!
+                </button>
+                <div class="wheel-result hidden" id="wheelResultBox"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 12. TOAST ALERTS ================= -->
+    <div class="toast-hub" id="toastHub"></div>
+
+    <!-- Main JavaScript File -->
+    <script>
+/* ===================================================================
+   ZAIKA GRAND LUXURY RESTAURANT - ADVANCED MASTER JAVASCRIPT
+   Features:
+   - Dark / Light Mode with LocalStorage
+   - Interactive "Build Your Biryani" Customizer Studio
+   - Real-time Food Menu Filtering, Search & Sorting
+   - Interactive Visual Floorplan / Table Reservation
+   - Advanced POS Billing Drawer with Split Bill Calculator
+   - Coupon Engine (ROYAL20, BIRYANI50, FREESHIP, FEAST100)
+   - Dual Bill Generation: Official GST Invoice & Kitchen KOT
+   - Live Cooking & Delivery Tracker with Live Countdown
+   - Interactive Spin The Wheel Promotion
+   =================================================================== */
+
+// ================= 1. FOOD MENU DATABASE =================
+const GOURMET_MENU = [
+    // BIRYANIS
+    {
+        id: 'biryani-hyderabadi-dum',
+        name: 'Hyderabadi Kachchi Chicken Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 340,
+        rating: 4.9,
+        reviews: 4200,
+        badge: 'Crown Signature',
+        calories: '540 kcal',
+        prepTime: '25m',
+        image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80',
+        description: 'Parboiled aged basmati layered with tender chicken cuts, saffron milk, fried onions & whole ground royal spices in clay handi.'
+    },
+    {
+        id: 'biryani-shahi-mutton',
+        name: 'Shahi Gosht Dum Biryani (Baby Goat)',
+        category: 'biryani',
+        isVeg: false,
+        price: 460,
+        rating: 5.0,
+        reviews: 3890,
+        badge: 'Best Seller',
+        calories: '620 kcal',
+        prepTime: '30m',
+        image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=700&q=80',
+        description: 'Prime baby goat cuts marinated for 24 hours, slow-dum cooked with Kashmiri saffron and Nizami garam masala.'
+    },
+    {
+        id: 'biryani-awadhi-lucknowi',
+        name: 'Lucknowi Awadhi Chicken Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 360,
+        rating: 4.8,
+        reviews: 2150,
+        badge: 'Aromatic & Mild',
+        calories: '490 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=700&q=80',
+        description: 'Mughlai style pakki biryani cooked with infused rose water, kewra essence, and melt-in-mouth chicken broth.'
+    },
+    {
+        id: 'biryani-shahi-paneer',
+        name: 'Shahi Malai Paneer Dum Biryani',
+        category: 'biryani',
+        isVeg: true,
+        price: 290,
+        rating: 4.8,
+        reviews: 2800,
+        badge: 'Pure Veg',
+        calories: '460 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1642821373181-696a54913e93?auto=format&fit=crop&w=700&q=80',
+        description: 'Char-grilled cottage cheese chunks layered with herb-scented aged basmati, fried mint, and toasted golden cashews.'
+    },
+    {
+        id: 'biryani-kolkata-heritage',
+        name: 'Kolkata Royal Egg & Potato Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 280,
+        rating: 4.7,
+        reviews: 1400,
+        badge: 'Heritage Classic',
+        calories: '440 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80',
+        description: 'Mild, sweet-spiced golden basmati served with tender whole spiced potatoes and organic farm boiled egg.'
+    },
+    {
+        id: 'biryani-tiger-prawns',
+        name: 'Konkan Tiger Prawns Ghee Roast Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 490,
+        rating: 4.9,
+        reviews: 1100,
+        badge: 'Seafood Special',
+        calories: '510 kcal',
+        prepTime: '25m',
+        image: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=700&q=80',
+        description: 'Wild tiger prawns roasted in coastal Mangalorean ghee roast spices, layered with fluffy saffron rice.'
+    },
+    {
+        id: 'biryani-bamboo-chicken',
+        name: 'Araku Valley Bamboo Chicken Dum Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 390,
+        rating: 4.9,
+        reviews: 1650,
+        badge: 'Tribal Wood Dum',
+        calories: '520 kcal',
+        prepTime: '25m',
+        image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80',
+        description: 'Chicken and basmati stuffed into fresh green bamboo stems, slow-roasted over natural charcoal embers.'
+    },
+    {
+        id: 'biryani-andhra-donne',
+        name: 'Fiery Andhra Donne Chicken Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 330,
+        rating: 4.8,
+        reviews: 2100,
+        badge: 'Fiery Green Chili',
+        calories: '490 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80',
+        description: 'Jeera samba rice infused with spicy green chilies, country chicken, and mint, served in eco-friendly plantain leaf donne.'
+    },
+    {
+        id: 'biryani-potlam-keema',
+        name: 'Shahi Potlam Mutton Keema Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 460,
+        rating: 5.0,
+        reviews: 1800,
+        badge: 'Omelette Parcel',
+        calories: '640 kcal',
+        prepTime: '25m',
+        image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80',
+        description: 'Fragrant dum biryani and spicy minced mutton keema snugly wrapped inside a golden, fluffy herb omelette pouch.'
+    },
+    {
+        id: 'biryani-malabar-thalassery',
+        name: 'Malabar Thalassery Chicken Biryani',
+        category: 'biryani',
+        isVeg: false,
+        price: 340,
+        rating: 4.8,
+        reviews: 1750,
+        badge: 'Kerala Special',
+        calories: '460 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=700&q=80',
+        description: 'Khyma rice cooked with tender spiced chicken, sweet caramelized shallots, crisp cashews, raisins, and pure Malabar ghee.'
+    },
+    {
+        id: 'biryani-kaju-mushroom',
+        name: 'Royal Kaju & Mushroom Dum Biryani',
+        category: 'biryani',
+        isVeg: true,
+        price: 290,
+        rating: 4.8,
+        reviews: 1350,
+        badge: 'Pure Veg Special',
+        calories: '430 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=700&q=80',
+        description: 'Button mushrooms and golden roasted whole cashews slow-cooked with saffron basmati rice and mild whole spices.'
+    },
+    {
+        id: 'biryani-soya-chaap',
+        name: 'Tandoori Soya Chaap Dum Biryani',
+        category: 'biryani',
+        isVeg: true,
+        price: 270,
+        rating: 4.7,
+        reviews: 1520,
+        badge: 'High Protein Veg',
+        calories: '410 kcal',
+        prepTime: '15m',
+        image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80',
+        description: 'Smoky grilled soya chaap skewers layered with mint-coriander scented long grain basmati rice.'
+    },
+
+    // CHARCOAL KEBABS & STARTERS
+    {
+        id: 'starter-chicken-65',
+        name: 'Hyderabadi Sizzling Chicken 65',
+        category: 'starters',
+        isVeg: false,
+        price: 260,
+        rating: 4.9,
+        reviews: 3200,
+        badge: 'Fiery & Crisp',
+        calories: '380 kcal',
+        prepTime: '15m',
+        image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=700&q=80',
+        description: 'Boneless chicken cubes tossed with fresh curry leaves, crushed black pepper, green chilies, and sour curd tempering.'
+    },
+    {
+        id: 'starter-tandoori-murgh',
+        name: 'Clay Tandoori Murgh (Smoked Half)',
+        category: 'starters',
+        isVeg: false,
+        price: 310,
+        rating: 4.9,
+        reviews: 2450,
+        badge: 'Charcoal Roasted',
+        calories: '420 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80',
+        description: 'Bone-in tender chicken steeped in Kashmiri deghi chili, roasted cumin, and hung curd, roasted in clay tandoor.'
+    },
+    {
+        id: 'starter-paneer-tikka',
+        name: 'Zafrani Paneer Tikka (Charcoal)',
+        category: 'starters',
+        isVeg: true,
+        price: 250,
+        rating: 4.8,
+        reviews: 1980,
+        badge: 'Pure Veg',
+        calories: '340 kcal',
+        prepTime: '15m',
+        image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80',
+        description: 'Velvety cottage cheese marinated with saffron, crushed ajwain, bell peppers and onions, grilled over hot charcoal.'
+    },
+    {
+        id: 'starter-galouti-kebab',
+        name: 'Awadhi Mutton Galouti Kebab',
+        category: 'starters',
+        isVeg: false,
+        price: 390,
+        rating: 5.0,
+        reviews: 1650,
+        badge: 'Melt-in-Mouth',
+        calories: '400 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80',
+        description: 'Finely minced lamb infused with 160 secret spices and raw papaya, pan-seared to melt instantaneously on the tongue.'
+    },
+
+    // SHAHI MAIN COURSE CURRIES
+    {
+        id: 'curry-butter-chicken',
+        name: 'Purani Dilli Shahi Butter Chicken',
+        category: 'curries',
+        isVeg: false,
+        price: 350,
+        rating: 4.9,
+        reviews: 4800,
+        badge: 'Chef Favorite',
+        calories: '520 kcal',
+        prepTime: '20m',
+        image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=700&q=80',
+        description: 'Shredded tandoori chicken simmered in rich velvety tomato, churned white butter, cashew cream, and sun-dried fenugreek.'
+    },
+    {
+        id: 'curry-paneer-butter-masala',
+        name: 'Paneer Butter Masala Royal',
+        category: 'curries',
+        isVeg: true,
+        price: 280,
+        rating: 4.8,
+        reviews: 3100,
+        badge: 'Pure Veg',
+        calories: '450 kcal',
+        prepTime: '15m',
+        image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=80',
+        description: 'Soft cottage cheese cubes enveloped in a rich, lightly sweet and spiced creamy tomato gravy with pure butter.'
+    },
+    {
+        id: 'curry-dal-zaika',
+        name: 'Dal Zaika Grand (Slow 24h Simmered)',
+        category: 'curries',
+        isVeg: true,
+        price: 240,
+        rating: 4.9,
+        reviews: 2900,
+        badge: '24h Simmered',
+        calories: '380 kcal',
+        prepTime: '15m',
+        image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80',
+        description: 'Whole urad lentils and kidney beans simmered overnight over slow charcoal with rich dairy cream, butter, and mild spices.'
+    },
+    {
+        id: 'curry-mutton-rogan-josh',
+        name: 'Kashmiri Mutton Rogan Josh',
+        category: 'curries',
+        isVeg: false,
+        price: 440,
+        rating: 4.9,
+        reviews: 1850,
+        badge: 'Royal Gravy',
+        calories: '560 kcal',
+        prepTime: '25m',
+        image: 'https://images.unsplash.com/photo-1545247181-516773cae754?auto=format&fit=crop&w=700&q=80',
+        description: 'Tender baby goat pieces cooked with Kashmiri red dried chilies, ratanjot herb, yogurt, and aromatic fennel powder.'
+    },
+
+    // TANDOOR BREADS
+    {
+        id: 'bread-butter-naan',
+        name: 'Smoked Butter Naan',
+        category: 'breads',
+        isVeg: true,
+        price: 55,
+        rating: 4.8,
+        reviews: 5200,
+        badge: 'Clay Baked',
+        calories: '180 kcal',
+        prepTime: '10m',
+        image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80',
+        description: 'Pillowy soft clay oven leavened bread brushed generously with farm butter.'
+    },
+    {
+        id: 'bread-garlic-naan',
+        name: 'Roasted Garlic & Herb Naan',
+        category: 'breads',
+        isVeg: true,
+        price: 70,
+        rating: 4.9,
+        reviews: 4100,
+        badge: 'Popular',
+        calories: '195 kcal',
+        prepTime: '10m',
+        image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80',
+        description: 'Topped with crushed roasted garlic, cilantro, and warm clarified butter.'
+    },
+
+    // ROYAL DESSERTS
+    {
+        id: 'dessert-gulab-rabdi',
+        name: 'Shahi Gulab Jamun with Malai Rabdi',
+        category: 'desserts',
+        isVeg: true,
+        price: 130,
+        rating: 5.0,
+        reviews: 3100,
+        badge: 'Sweet Delight',
+        calories: '290 kcal',
+        prepTime: '10m',
+        image: 'https://images.unsplash.com/photo-1589119908995-c6837fa14d48?auto=format&fit=crop&w=700&q=80',
+        description: 'Two golden fried milk dumplings soaked in cardamom saffron syrup, topped with thick reduced malai rabdi.'
+    },
+    {
+        id: 'dessert-shahi-tukda',
+        name: 'Hyderabadi Shahi Tukda (Double Ka Meetha)',
+        category: 'desserts',
+        isVeg: true,
+        price: 150,
+        rating: 4.9,
+        reviews: 1950,
+        badge: 'Nizami Royal',
+        calories: '320 kcal',
+        prepTime: '10m',
+        image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80',
+        description: 'Crisp ghee fried bread soaked in saffron milk and condensed cream, garnished with silver vark and pistachios.'
+    },
+
+    // COOLERS & DRINKS
+    {
+        id: 'drink-mango-lassi',
+        name: 'Royal Alphonso Mango Lassi',
+        category: 'drinks',
+        isVeg: true,
+        price: 95,
+        rating: 4.9,
+        reviews: 3600,
+        badge: 'Chilled Shake',
+        calories: '220 kcal',
+        prepTime: '5m',
+        image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=700&q=80',
+        description: 'Thick creamy yogurt smoothie blended with real Ratnagiri Alphonso mango pulp and cardamom.'
+    },
+    {
+        id: 'drink-masala-chaas',
+        name: 'Smoked Cumin Masala Chaas (Buttermilk)',
+        category: 'drinks',
+        isVeg: true,
+        price: 65,
+        rating: 4.8,
+        reviews: 1800,
+        badge: 'Digestive',
+        calories: '80 kcal',
+        prepTime: '5m',
+        image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=80',
+        description: 'Light churned spiced buttermilk with roasted jeera, ginger juice, mint, and Himalayan pink rock salt.'
+    }
+];
+
+// ================= 2. STATE MANAGEMENT =================
+let cart = [];
+let activeCategory = 'all';
+let activeDiet = 'all';
+let searchQuery = '';
+let activeSort = 'featured';
+let appliedCoupon = null;
+let diningType = 'Dine-in';
+let splitCount = 1;
+let selectedTable = 'Table T-02 (AC Royal Banquet)';
+
+// Biryani Builder State
+let customBiryani = {
+    base: 'Chicken',
+    basePrice: 340,
+    style: 'Hyderabadi Kachchi Dum',
+    styleExtra: 0,
+    spice: 'Royal Medium ðŸŒ¶ï¸ðŸŒ¶ï¸',
+    addons: [],
+    addonsTotal: 0
+};
+
+// ================= 3. INITIALIZATION =================
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initDate();
+    initBiryaniBuilder();
+    renderMenuGrid();
+    initFloorplan();
+    updateCartDisplay();
+    initTrackerTimer();
+    bindEvents();
+});
+
+// ================= 4. THEME SWITCHER =================
+function initTheme() {
+    const savedTheme = localStorage.getItem('zg_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeButton(savedTheme);
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('zg_theme', newTheme);
+    updateThemeButton(newTheme);
+    showToast(`Switched to ${newTheme.toUpperCase()} mode!`);
+}
+
+function updateThemeButton(theme) {
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    if (theme === 'dark') {
+        themeIcon.className = 'fa-solid fa-sun';
+        themeText.textContent = 'Light';
+    } else {
+        themeIcon.className = 'fa-solid fa-moon';
+        themeText.textContent = 'Dark';
+    }
+}
+
+// ================= 5. DATE PICKER =================
+function initDate() {
+    const dateInput = document.getElementById('resDate');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+    }
+}
+
+// ================= 6. BIRYANI BUILDER STUDIO =================
+function initBiryaniBuilder() {
+    // Base Radio Options
+    const baseRadios = document.querySelectorAll('input[name="biryaniBase"]');
+    baseRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            document.querySelectorAll('#baseOptions .builder-option').forEach(el => el.classList.remove('selected'));
+            e.target.closest('.builder-option').classList.add('selected');
+
+            customBiryani.base = e.target.value;
+            customBiryani.basePrice = parseFloat(e.target.getAttribute('data-price'));
+            updateBuilderCalculations();
+        });
+    });
+
+    // Style Radio Options
+    const styleRadios = document.querySelectorAll('input[name="biryaniStyle"]');
+    styleRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            document.querySelectorAll('#styleOptions .builder-option').forEach(el => el.classList.remove('selected'));
+            e.target.closest('.builder-option').classList.add('selected');
+
+            customBiryani.style = e.target.value;
+            customBiryani.styleExtra = parseFloat(e.target.getAttribute('data-extra'));
+            updateBuilderCalculations();
+        });
+    });
+
+    // Spice Buttons
+    const spiceButtons = document.querySelectorAll('.spice-btn');
+    spiceButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            spiceButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            customBiryani.spice = btn.querySelector('strong').textContent;
+            updateBuilderCalculations();
+        });
+    });
+
+    // Addons Checkboxes
+    const addonCheckboxes = document.querySelectorAll('input[name="addons"]');
+    addonCheckboxes.forEach(chk => {
+        chk.addEventListener('change', () => {
+            customBiryani.addons = [];
+            customBiryani.addonsTotal = 0;
+
+            addonCheckboxes.forEach(c => {
+                if (c.checked) {
+                    customBiryani.addons.push(c.value);
+                    customBiryani.addonsTotal += parseFloat(c.getAttribute('data-price'));
+                }
+            });
+            updateBuilderCalculations();
+        });
+    });
+
+    // Add Custom Handi Button
+    const addCustomBtn = document.getElementById('addCustomHandiBtn');
+    if (addCustomBtn) {
+        addCustomBtn.addEventListener('click', () => {
+            const totalPrice = customBiryani.basePrice + customBiryani.styleExtra + customBiryani.addonsTotal;
+            const customTitle = `Custom ${customBiryani.base} Handi (${customBiryani.style})`;
+            const customMeta = `${customBiryani.spice} â€¢ Addons: ${customBiryani.addons.join(', ') || 'None'}`;
+
+            addToCart({
+                id: `custom-biryani-${Date.now()}`,
+                name: customTitle,
+                price: totalPrice,
+                meta: customMeta,
+                isVeg: customBiryani.base === 'Paneer',
+                image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80',
+                qty: 1
+            });
+        });
+    }
+
+    updateBuilderCalculations();
+}
+
+function updateBuilderCalculations() {
+    const total = customBiryani.basePrice + customBiryani.styleExtra + customBiryani.addonsTotal;
+
+    document.getElementById('specBase').textContent = customBiryani.base;
+    document.getElementById('specStyle').textContent = customBiryani.style;
+    document.getElementById('specSpice').textContent = customBiryani.spice;
+    document.getElementById('specAddons').textContent = customBiryani.addons.join(', ') || 'None';
+    document.getElementById('builderCalculatedPrice').textContent = `â‚¹${total}`;
+    document.getElementById('previewBadge').textContent = `${customBiryani.base} â€¢ ${customBiryani.style}`;
+}
+
+// ================= 7. RENDER FULL FOOD MENU =================
+function renderMenuGrid() {
+    const container = document.getElementById('menuGridContainer');
+    const noResults = document.getElementById('noResultsBox');
+    const countDisplay = document.getElementById('menuCountFeedback');
+    if (!container) return;
+
+    let items = [...GOURMET_MENU];
+
+    // Category Filter
+    if (activeCategory !== 'all') {
+        items = items.filter(i => i.category === activeCategory);
+    }
+
+    // Diet Filter
+    if (activeDiet === 'veg') {
+        items = items.filter(i => i.isVeg === true);
+    } else if (activeDiet === 'nonveg') {
+        items = items.filter(i => i.isVeg === false);
+    }
+
+    // Search Query
+    if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase().trim();
+        items = items.filter(i => 
+            i.name.toLowerCase().includes(q) ||
+            i.description.toLowerCase().includes(q) ||
+            i.category.toLowerCase().includes(q)
+        );
+    }
+
+    // Sorting
+    if (activeSort === 'price-asc') {
+        items.sort((a, b) => a.price - b.price);
+    } else if (activeSort === 'price-desc') {
+        items.sort((a, b) => b.price - a.price);
+    } else if (activeSort === 'rating') {
+        items.sort((a, b) => b.rating - a.rating);
+    }
+
+    countDisplay.textContent = `Displaying ${items.length} signature royal dish${items.length === 1 ? '' : 'es'}`;
+
+    if (items.length === 0) {
+        container.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+    } else {
+        noResults.classList.add('hidden');
+    }
+
+    container.innerHTML = items.map(dish => `
+        <article class="dish-card" data-id="${dish.id}">
+            <div class="dish-img-box">
+                <img src="${dish.image}" alt="${dish.name}" loading="lazy">
+                <span class="dish-badge-pill">${dish.badge}</span>
+                <span class="dish-diet-tag ${dish.isVeg ? 'veg' : 'nonveg'}" title="${dish.isVeg ? 'Pure Vegetarian' : 'Non-Vegetarian'}"></span>
+            </div>
+            <div class="dish-body">
+                <div class="dish-title-row">
+                    <h4>${dish.name}</h4>
+                    <span class="dish-rating"><i class="fa-solid fa-star"></i> ${dish.rating}</span>
+                </div>
+                <div style="display: flex; gap: 0.8rem; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+                    <span><i class="fa-solid fa-fire-flame-curry"></i> ${dish.calories}</span>
+                    <span><i class="fa-solid fa-clock"></i> ${dish.prepTime}</span>
+                    <span><i class="fa-solid fa-users"></i> ${dish.reviews}+ reviews</span>
+                </div>
+                <p class="dish-desc">${dish.description}</p>
+                <div class="dish-footer">
+                    <span class="dish-price">â‚¹${dish.price}</span>
+                    <button class="btn-dish-add" onclick="quickAdd('${dish.id}', '${dish.name.replace(/'/g, "\\'")}', ${dish.price}, '${dish.image}')">
+                        <i class="fa-solid fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+        </article>
+    `).join('');
+}
+
+// Quick Add Handler
+window.quickAdd = function(id, name, price, image) {
+    addToCart({
+        id,
+        name,
+        price,
+        meta: 'Standard Serving',
+        isVeg: false,
+        image,
+        qty: 1
+    });
+};
+
+// ================= 8. CART & BILLING LOGIC =================
+function addToCart(itemObj) {
+    const existing = cart.find(c => c.name === itemObj.name && c.meta === itemObj.meta);
+    if (existing) {
+        existing.qty += itemObj.qty || 1;
+    } else {
+        cart.push(itemObj);
+    }
+
+    updateCartDisplay();
+    showToast(`Added "${itemObj.name}" to Bill!`, 'success');
+}
+
+function updateCartItemQty(index, delta) {
+    if (!cart[index]) return;
+    cart[index].qty += delta;
+
+    if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+        showToast('Item removed from bill');
+    }
+
+    updateCartDisplay();
+}
+
+function removeCartItem(index) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+    showToast('Item deleted from bill');
+}
+
+window.updateCartItemQty = updateCartItemQty;
+window.removeCartItem = removeCartItem;
+
+function computeBill() {
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    // Coupon Calculations
+    let discount = 0;
+    if (appliedCoupon && subtotal > 0) {
+        if (appliedCoupon.code === 'BIRYANI50' && subtotal >= 300) {
+            discount = 50;
+        } else if (appliedCoupon.code === 'ROYAL20') {
+            discount = Math.min(Math.round(subtotal * 0.20), 200);
+        } else if (appliedCoupon.code === 'FEAST100' && subtotal >= 700) {
+            discount = 100;
+        } else if (appliedCoupon.code === 'FREESHIP') {
+            discount = 40; // covers delivery fee
+        }
+    }
+
+    const discountedSubtotal = Math.max(0, subtotal - discount);
+    
+    // 5% GST (2.5% CGST + 2.5% SGST)
+    const gstTotal = subtotal > 0 ? Math.round(discountedSubtotal * 0.05) : 0;
+    const cgst = (gstTotal / 2).toFixed(2);
+    const sgst = (gstTotal / 2).toFixed(2);
+
+    // Delivery fee
+    let delivery = 0;
+    if (diningType === 'Delivery' && subtotal > 0 && appliedCoupon?.code !== 'FREESHIP') {
+        delivery = 40;
+    }
+
+    const grandTotal = subtotal > 0 ? (discountedSubtotal + gstTotal + delivery) : 0;
+    const splitAmount = splitCount > 1 ? (grandTotal / splitCount).toFixed(2) : grandTotal.toFixed(2);
+
+    return {
+        subtotal,
+        discount,
+        discountedSubtotal,
+        gstTotal,
+        cgst,
+        sgst,
+        delivery,
+        grandTotal,
+        splitAmount
+    };
+}
+
+function updateCartDisplay() {
+    const totalCount = cart.reduce((sum, i) => sum + i.qty, 0);
+    const totals = computeBill();
+
+    // Update Header Badges
+    document.getElementById('cartBadge').textContent = totalCount;
+    document.getElementById('cartHeaderTotal').textContent = `â‚¹${totals.grandTotal.toFixed(2)}`;
+
+    // Update Drawer Item List
+    const cartList = document.getElementById('cartItemList');
+    if (cart.length === 0) {
+        cartList.innerHTML = `
+            <div style="text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+                <i class="fa-solid fa-bowl-rice fa-3x" style="color: var(--border-color); margin-bottom: 1rem;"></i>
+                <h4>Your Dining Bill is Empty</h4>
+                <p style="font-size: 0.85rem;">Add delicious biryanis, kebabs, or breads to calculate your order bill.</p>
+            </div>
+        `;
+    } else {
+        cartList.innerHTML = cart.map((item, index) => `
+            <div class="pos-cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-thumb">
+                <div class="cart-item-details">
+                    <h5>${item.name}</h5>
+                    <div class="cart-item-meta">${item.meta} â€¢ â‚¹${item.price}</div>
+                    <div class="cart-item-price">â‚¹${item.price * item.qty}</div>
+                </div>
+                <div class="cart-qty-spinner">
+                    <button class="cart-qty-btn" onclick="updateCartItemQty(${index}, -1)"><i class="fa-solid fa-minus"></i></button>
+                    <span class="cart-qty-num">${item.qty}</span>
+                    <button class="cart-qty-btn" onclick="updateCartItemQty(${index}, 1)"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <button class="cart-item-del" onclick="removeCartItem(${index})" aria-label="Delete Item">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+            </div>
+        `).join('');
+    }
+
+    // Update Numerical Calculation Rows
+    document.getElementById('posSubtotal').textContent = `â‚¹${totals.subtotal.toFixed(2)}`;
+
+    const discountRow = document.getElementById('posDiscountRow');
+    if (totals.discount > 0) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('posDiscount').textContent = `-â‚¹${totals.discount.toFixed(2)}`;
+    } else {
+        discountRow.classList.add('hidden');
+    }
+
+    document.getElementById('posGst').textContent = `â‚¹${totals.gstTotal.toFixed(2)}`;
+
+    const deliveryRow = document.getElementById('posDeliveryRow');
+    if (diningType === 'Delivery') {
+        deliveryRow.classList.remove('hidden');
+        document.getElementById('posDeliveryCharge').textContent = `â‚¹${totals.delivery.toFixed(2)}`;
+    } else {
+        deliveryRow.classList.add('hidden');
+    }
+
+    document.getElementById('posGrandTotal').textContent = `â‚¹${totals.grandTotal.toFixed(2)}`;
+
+    // Split bill feedback
+    const splitResultDisplay = document.getElementById('splitResultDisplay');
+    if (splitCount > 1 && totals.grandTotal > 0) {
+        splitResultDisplay.classList.remove('hidden');
+        document.getElementById('eachPersonPay').textContent = `â‚¹${totals.splitAmount} (Total: â‚¹${totals.grandTotal} / ${splitCount} pax)`;
+    } else {
+        splitResultDisplay.classList.add('hidden');
+    }
+}
+
+// Apply Coupon Code
+function applyCouponCode(code) {
+    const c = code.trim().toUpperCase();
+    const totals = computeBill();
+    const alertMsg = document.getElementById('couponAlertMsg');
+
+    if (totals.subtotal === 0) {
+        alertMsg.textContent = 'Please add food items first!';
+        alertMsg.className = 'coupon-alert error';
+        return;
+    }
+
+    if (c === 'ROYAL20') {
+        appliedCoupon = { code: 'ROYAL20', desc: '20% Royal Discount' };
+        alertMsg.textContent = 'Awesome! 20% Discount Applied!';
+        alertMsg.className = 'coupon-alert success';
+    } else if (c === 'BIRYANI50') {
+        if (totals.subtotal < 300) {
+            alertMsg.textContent = 'BIRYANI50 requires minimum â‚¹300 order';
+            alertMsg.className = 'coupon-alert error';
+            return;
+        }
+        appliedCoupon = { code: 'BIRYANI50', desc: 'Flat â‚¹50 Off' };
+        alertMsg.textContent = 'Flat â‚¹50 Biryani Discount Applied!';
+        alertMsg.className = 'coupon-alert success';
+    } else if (c === 'FREESHIP') {
+        appliedCoupon = { code: 'FREESHIP', desc: 'Zero Delivery Fee' };
+        alertMsg.textContent = 'Free Delivery Activated!';
+        alertMsg.className = 'coupon-alert success';
+    } else if (c === 'FEAST100') {
+        if (totals.subtotal < 700) {
+            alertMsg.textContent = 'FEAST100 requires minimum â‚¹700 order';
+            alertMsg.className = 'coupon-alert error';
+            return;
+        }
+        appliedCoupon = { code: 'FEAST100', desc: 'Flat â‚¹100 Off' };
+        alertMsg.textContent = 'â‚¹100 Grand Feast Discount Applied!';
+        alertMsg.className = 'coupon-alert success';
+    } else {
+        alertMsg.textContent = 'Invalid coupon code. Try ROYAL20 or BIRYANI50';
+        alertMsg.className = 'coupon-alert error';
+        return;
+    }
+
+    updateCartDisplay();
+}
+
+// ================= 9. INVOICE & KOT GENERATION =================
+function generateTaxInvoice() {
+    if (cart.length === 0) {
+        showToast('Your cart is empty. Please add items to generate a bill!', 'error');
+        return;
+    }
+
+    const custName = document.getElementById('custNameInput').value.trim() || 'Valued Guest';
+    const custPhone = document.getElementById('custPhoneInput').value.trim() || '+91 9876543210';
+    const custLocation = document.getElementById('custLocationInput').value.trim() || selectedTable;
+    const payMethod = document.getElementById('custPayMethod').value;
+
+    const totals = computeBill();
+    const now = new Date();
+    const invNum = '#ZG-' + Math.floor(100000 + Math.random() * 900000);
+    const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) + ', ' +
+                    now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    // Populate Fields
+    document.getElementById('invNumber').textContent = invNum;
+    document.getElementById('invDateTime').textContent = dateStr;
+    document.getElementById('invCustomer').textContent = custName;
+    document.getElementById('invPhone').textContent = custPhone;
+    document.getElementById('invDiningType').textContent = `${diningType} (${custLocation})`;
+    document.getElementById('invPaymentMode').textContent = payMethod;
+
+    // Populate Table
+    const tbody = document.getElementById('invTableBody');
+    tbody.innerHTML = cart.map((item, index) => `
+        <tr>
+            <td class="text-left">${index + 1}</td>
+            <td class="text-left"><strong>${item.name}</strong><br><small style="color: #64748b;">${item.meta}</small></td>
+            <td class="text-center">996331</td>
+            <td class="text-center"><strong>${item.qty}</strong></td>
+            <td class="text-right">â‚¹${item.price.toFixed(2)}</td>
+            <td class="text-right"><strong>â‚¹${(item.price * item.qty).toFixed(2)}</strong></td>
+        </tr>
+    `).join('');
+
+    // Totals
+    document.getElementById('invSubtotal').textContent = `â‚¹${totals.subtotal.toFixed(2)}`;
+
+    const invDiscRow = document.getElementById('invDiscountRow');
+    if (totals.discount > 0) {
+        invDiscRow.classList.remove('hidden');
+        document.getElementById('invDiscount').textContent = `-â‚¹${totals.discount.toFixed(2)} (${appliedCoupon.code})`;
+    } else {
+        invDiscRow.classList.add('hidden');
+    }
+
+    document.getElementById('invCgst').textContent = `â‚¹${totals.cgst}`;
+    document.getElementById('invSgst').textContent = `â‚¹${totals.sgst}`;
+
+    const invDelRow = document.getElementById('invDeliveryRow');
+    if (totals.delivery > 0) {
+        invDelRow.classList.remove('hidden');
+        document.getElementById('invDelivery').textContent = `â‚¹${totals.delivery.toFixed(2)}`;
+    } else {
+        invDelRow.classList.add('hidden');
+    }
+
+    document.getElementById('invGrandTotal').textContent = `â‚¹${totals.grandTotal.toFixed(2)}`;
+
+    // Update Live Tracker
+    document.getElementById('liveOrderNumber').textContent = invNum;
+    document.getElementById('trackerCustomerDisplay').textContent = `Customer: ${custName} (${custLocation})`;
+
+    closeCartDrawer();
+    document.getElementById('billModalBackdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function generateKitchenKOT() {
+    if (cart.length === 0) {
+        showToast('Cart is empty!', 'error');
+        return;
+    }
+
+    const custLocation = document.getElementById('custLocationInput').value.trim() || selectedTable;
+    const now = new Date();
+
+    document.getElementById('kotNumber').textContent = 'KOT-' + Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('kotTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    document.getElementById('kotTable').textContent = `${diningType} (${custLocation})`;
+
+    const tbody = document.getElementById('kotTableBody');
+    tbody.innerHTML = cart.map(item => `
+        <tr>
+            <td><strong>${item.qty}x</strong></td>
+            <td><strong>${item.name}</strong></td>
+            <td><small>${item.meta}</small></td>
+        </tr>
+    `).join('');
+
+    closeCartDrawer();
+    document.getElementById('kotModalBackdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// ================= 10. VISUAL FLOORPLAN TABLE SELECTOR =================
+function initFloorplan() {
+    const tableNodes = document.querySelectorAll('.table-node');
+    const display = document.getElementById('selectedTableDisplay');
+    const custLocationInput = document.getElementById('custLocationInput');
+
+    tableNodes.forEach(node => {
+        node.addEventListener('click', () => {
+            if (node.classList.contains('occupied')) return;
+
+            tableNodes.forEach(n => n.classList.remove('selected'));
+            node.classList.add('selected');
+
+            const tableId = node.getAttribute('data-table');
+            const zone = node.getAttribute('data-zone');
+            const capacity = node.getAttribute('data-capacity');
+
+            selectedTable = `Table ${tableId} (${zone} - ${capacity} Pax)`;
+            display.textContent = selectedTable;
+            if (custLocationInput) custLocationInput.value = selectedTable;
+
+            showToast(`Selected ${selectedTable}! Fill form to reserve.`, 'success');
+        });
+    });
+}
+
+function handleReservationSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('guestName').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('resDate').value;
+    const slot = document.getElementById('resSlot').value;
+    const notes = document.getElementById('specialNotes').value;
+
+    const form = document.getElementById('reservationForm');
+    const successBox = document.getElementById('resSuccessBox');
+    const ticket = document.getElementById('resTicketContent');
+
+    const resId = '#RES-ZG' + Math.floor(1000 + Math.random() * 9000);
+
+    form.classList.add('hidden');
+    successBox.classList.remove('hidden');
+
+    ticket.innerHTML = `
+        <p><strong>Booking ID:</strong> ${resId}</p>
+        <p><strong>Guest Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Reserved Table:</strong> ${selectedTable}</p>
+        <p><strong>Date & Time Slot:</strong> ${date} at ${slot}</p>
+        ${notes ? `<p><strong>Special Request:</strong> ${notes}</p>` : ''}
+        <p style="color: var(--success-green); margin-top: 0.5rem;"><i class="fa-solid fa-circle-check"></i> Instant SMS confirmation dispatched to ${phone}</p>
+    `;
+
+    showToast('Table Reservation Confirmed!', 'success');
+}
+
+// ================= 11. LIVE TIMER COUNTDOWN =================
+function initTrackerTimer() {
+    let timeLeft = 28 * 60; // 28 minutes in seconds
+    const timerElem = document.getElementById('trackerTimer');
+
+    setInterval(() => {
+        if (timeLeft <= 0) {
+            timerElem.textContent = '00:00 (Served!)';
+            return;
+        }
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timerElem.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }, 1000);
+}
+
+// ================= 12. SPIN THE WHEEL =================
+function spinLuckyWheel() {
+    const wheel = document.getElementById('luckyWheel');
+    const resultBox = document.getElementById('wheelResultBox');
+    const actionBtn = document.getElementById('spinActionBtn');
+
+    actionBtn.disabled = true;
+    resultBox.classList.add('hidden');
+
+    // Random rotation between 1800 and 3600 degrees
+    const randomRot = Math.floor(1800 + Math.random() * 1800);
+    wheel.style.transform = `rotate(${randomRot}deg)`;
+
+    setTimeout(() => {
+        actionBtn.disabled = false;
+        resultBox.classList.remove('hidden');
+        resultBox.innerHTML = `
+            ðŸŽ‰ <strong>CONGRATULATIONS!</strong><br>
+            You won <strong>20% OFF</strong>! Use secret coupon: <span style="background: #0f172a; color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-weight: 800;">ROYAL20</span>
+        `;
+        applyCouponCode('ROYAL20');
+        showToast('Coupon ROYAL20 automatically applied to your bill!', 'success');
+    }, 4200);
+}
+
+// ================= 13. TOAST MESSAGES =================
+function showToast(message, type = 'default') {
+    const hub = document.getElementById('toastHub');
+    if (!hub) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast-msg ${type}`;
+    toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-success' : type === 'error' ? 'fa-circle-xmark text-danger' : 'fa-bell text-gold'}"></i>
+        <span>${message}</span>
+    `;
+
+    hub.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 3200);
+}
+
+// ================= 14. EVENT ATTACHMENTS =================
+function bindEvents() {
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // Cart Open / Close
+    const cartBtn = document.getElementById('cartOpenBtn');
+    const closeCart = document.getElementById('closeCartDrawerBtn');
+    const backdrop = document.getElementById('cartBackdrop');
+
+    if (cartBtn) cartBtn.addEventListener('click', openCartDrawer);
+    if (closeCart) closeCart.addEventListener('click', closeCartDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeCartDrawer);
+
+    // Dining Mode Selector in POS
+    document.querySelectorAll('input[name="posDiningType"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            diningType = e.target.value;
+            const locInput = document.getElementById('custLocationInput');
+            if (diningType === 'Dine-in') {
+                locInput.value = selectedTable;
+                locInput.placeholder = 'Table Number';
+            } else if (diningType === 'Delivery') {
+                locInput.value = '';
+                locInput.placeholder = 'Delivery Street Address & Flat Number';
+            } else {
+                locInput.value = 'Self Takeaway Counter';
+            }
+            updateCartDisplay();
+        });
+    });
+
+    // Split Bill Selector
+    document.getElementById('splitPersons').addEventListener('change', (e) => {
+        splitCount = parseInt(e.target.value, 10);
+        updateCartDisplay();
+    });
+
+    // Coupon Apply Button
+    document.getElementById('applyPosCoupon').addEventListener('click', () => {
+        const val = document.getElementById('posCouponInput').value;
+        applyCouponCode(val);
+    });
+
+    // Quick coupon chips
+    document.querySelectorAll('.chip-coupon').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const code = chip.getAttribute('data-code');
+            document.getElementById('posCouponInput').value = code;
+            applyCouponCode(code);
+        });
+    });
+
+    // Invoice & KOT Triggers
+    document.getElementById('generateTaxInvoiceBtn').addEventListener('click', generateTaxInvoice);
+    document.getElementById('generateKotBtn').addEventListener('click', generateKitchenKOT);
+
+    // Close Modals
+    document.getElementById('closeBillModalBtn').addEventListener('click', () => {
+        document.getElementById('billModalBackdrop').classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    document.getElementById('closeKotModalBtn').addEventListener('click', () => {
+        document.getElementById('kotModalBackdrop').classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Print Buttons
+    document.getElementById('printTaxInvoiceBtn').addEventListener('click', () => window.print());
+    document.getElementById('bottomPrintTaxBtn').addEventListener('click', () => window.print());
+
+    // Reset / New Order
+    document.getElementById('startNewOrderBtn').addEventListener('click', () => {
+        cart = [];
+        appliedCoupon = null;
+        updateCartDisplay();
+        document.getElementById('billModalBackdrop').classList.remove('active');
+        document.body.style.overflow = '';
+        showToast('Started fresh new order session!');
+    });
+
+    // Spin Wheel Modal
+    const wheelModal = document.getElementById('wheelModalBackdrop');
+    document.getElementById('spinWheelBtn').addEventListener('click', () => {
+        wheelModal.classList.add('active');
+    });
+    document.getElementById('closeWheelModalBtn').addEventListener('click', () => {
+        wheelModal.classList.remove('active');
+    });
+    document.getElementById('spinActionBtn').addEventListener('click', spinLuckyWheel);
+
+    // Menu Filters & Search
+    const searchInput = document.getElementById('menuSearch');
+    const clearSearch = document.getElementById('clearMenuSearch');
+
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        clearSearch.style.display = searchQuery ? 'block' : 'none';
+        renderMenuGrid();
+    });
+
+    clearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        clearSearch.style.display = 'none';
+        renderMenuGrid();
+    });
+
+    // Category Tabs
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            activeCategory = pill.getAttribute('data-category');
+            renderMenuGrid();
+        });
+    });
+
+    // Dietary Filter Buttons
+    document.querySelectorAll('.diet-filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            document.querySelectorAll('.diet-filter-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            activeDiet = pill.getAttribute('data-diet');
+            renderMenuGrid();
+        });
+    });
+
+    // Sort Dropdown
+    document.getElementById('menuSortSelect').addEventListener('change', (e) => {
+        activeSort = e.target.value;
+        renderMenuGrid();
+    });
+
+    // Reset filters
+    document.getElementById('resetFilters').addEventListener('click', () => {
+        activeCategory = 'all';
+        activeDiet = 'all';
+        searchQuery = '';
+        activeSort = 'featured';
+        searchInput.value = '';
+        document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-category') === 'all'));
+        document.querySelectorAll('.diet-filter-pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-diet') === 'all'));
+        renderMenuGrid();
+    });
+
+    // Book another table
+    const bookAnother = document.getElementById('bookAnotherTableBtn');
+    if (bookAnother) {
+        bookAnother.addEventListener('click', () => {
+            document.getElementById('reservationForm').classList.remove('hidden');
+            document.getElementById('resSuccessBox').classList.add('hidden');
+        });
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+    }
+}
+
+function openCartDrawer() {
+    document.getElementById('posCartDrawer').classList.add('active');
+    document.getElementById('cartBackdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCartDrawer() {
+    document.getElementById('posCartDrawer').classList.remove('active');
+    document.getElementById('cartBackdrop').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+</script>
+</body>
+</html>
+
